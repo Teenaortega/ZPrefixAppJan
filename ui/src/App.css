@@ -1,0 +1,223 @@
+body {
+  background-color: #666666;
+}
+
+textarea {
+  resize: none;
+  overflow: auto;
+}
+
+.Display {
+  height: auto;
+  overflow:auto;
+}
+
+.Result-Table {
+  background-color: #222222;
+  font-size: calc(8px + 2vmin);
+  color: #FFFFFF;
+  width: 90vw;
+  opacity: 85%;
+}
+
+.MuiDataGrid-columnHeaders {
+  background-color: #080808;
+}
+
+.MuiDataGrid-row:nth-child(odd){
+  background-color: #363636;
+}
+
+.MuiDataGrid-row:nth-child(even){
+  background-color: #2c2c2c;
+}
+
+.MuiDataGrid-cellContent, .MuiTablePagination-displayedRows,
+.MuiDataGrid-columnHeaderTitle, .MuiSvgIcon-root {
+  color: #FFFFFF;
+  font-size: calc(7px + 1vmin);
+}
+
+.Header {
+  background-color: #222222;
+  height: 8vh;
+  min-height: 8vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  font-size: calc(13px + 2vmin);
+  color: #FFFFFF;
+  vertical-align: middle;
+}
+
+.Header-Title {
+  margin: 1vh 3vh 1vh 3vh;
+  justify-self: left;
+  display: flex;
+  align-items: center;
+  font-size: calc(8px + 2vmin);
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.Header-Title:hover, .Header-Login:hover, .Header-Logout:hover, .Login-Submit-Button:hover,
+.New-Account-Link:hover, .Onboard-Submit-Button:hover, .Password-Requirements:hover,
+.All-Items:hover, .My-Items:hover, .Add-Item:hover, .New-Submit-Button:hover,
+.Details-Edit-Button:hover, .Details-Cancel-Button:hover, .Details-Save-Button:hover,
+.Details-Delete-Button:hover {
+  cursor: pointer;
+  opacity: 60%;
+}
+
+.Header-Title:active, .Header-Login:active, .Header-Logout:active, .Login-Submit-Button:active,
+.New-Account-Link:active, .Onboard-Submit-Button:active, .Password-Requirements:active,
+.All-Items:active, .My-Items:active, .Add-Item:active, .New-Submit-Button:active,
+.Details-Edit-Button:active, .Details-Cancel-Button:active, .Details-Save-Button:active,
+.Details-Delete-Button:active {
+  opacity: 60%;
+  scale:90%;
+}
+
+.Login-Submit-Button, .Onboard-Submit-Button, .New-Submit-Button, .Details-Edit-Button, .Cant-Edit-Button {
+  color: #FFFFFF;
+  margin: 0vh 0vh 0vh 0vh;
+  width: 30vw;
+  font-size: calc(8px + 2vmin);
+  background-color: transparent;
+  border: none;
+}
+
+.Details-Cancel-Button, .Details-Save-Button, .Details-Delete-Button {
+  color: #FFFFFF;
+  margin: 0vh 0vh 0vh 0vh;
+  height: 33%;
+  width: 100%;
+  font-size: calc(8px + 2vmin);
+  background-color: transparent;
+  border: none;
+}
+
+.Header-Login, .Header-Logout, .Header-Greeting {
+  margin: 1vh 3vh 1vh auto;
+  justify-self: left;
+  display: flex;
+  align-items: center;
+  font-size: calc(8px + 2vmin);
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.Content {
+  height: 90vh;
+  padding: 1vh 3vh 1vh 3vh;
+  font-size: calc(8px + 2vmin);
+  display: flex;
+  justify-content: center;
+  background: url('./bg.png');
+  background-size: cover;
+}
+
+
+.Login, .Onboard, .New, .Details, .Login-Entry, .Onboard-Entry, .New-Entry, .Details-Entry, .Details-Button-Box, .Items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Login-Entry, .Onboard-Entry, .New-Entry, .Details-Entry {
+  width: 70%;
+}
+
+.Item-Filter, .Login-Container, .Onboard-Container, .New-Container,
+.Details-Container {
+  background-color: #222222;
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  border-radius: 1rem;
+}
+
+.Details-Button-Box {
+  width:30vw;
+}
+
+.All-Items, .My-Items, .Add-Item {
+  width: 30vw;
+  height: 100%;
+  font-size: calc(8px + 2vmin);
+  color: #FFFFFF;
+  background: transparent;
+  border: none;
+}
+
+.Login-Field-User, .Login-Field-Pass, .Onboard-Field-First, .Onboard-Field-Last,
+.Onboard-Field-User, .Onboard-Field-Pass, .New-Item-Name, .New-Item-Description,
+.New-Item-Quantity, .Details-Item-Name, .Details-Item-Id, .Details-Owner, .Details-Username,
+ .Details-User-Id, .Details-Item-Quantity, .Details-Item-Description {
+ background: transparent;
+ color: #FFFFFF;
+ border: hidden;
+ border-bottom-style: groove;
+ border-color: #949494;
+ font-size: calc(8px + 2vmin);
+}
+
+.Login-Field-User:focus, .Login-Field-Pass:focus, .Onboard-Field-First:focus,
+.Onboard-Field-Last:focus, .Onboard-Field-User:focus, .Onboard-Field-Pass:focus,
+.All-Items:focus, .My-Items:focus, .Add-Item:focus, .New-Item-Name:focus,
+ .New-Item-Description:focus, .New-Item-Quantity:focus, .Details-Item-Name:focus,
+ .Details-Item-Id:focus, .Details-Owner:focus, .Details-Username:focus,
+ .Details-User-Id:focus, .Details-Item-Quantity:focus, .Details-Item-Description:focus {
+  outline: none;
+  border-color: #FFFFFF;
+}
+
+.Login-Field-User, .Onboard-Field-First, .New-Item-Name {
+  margin: 1.5vh 0vh .5vh 4.5vh;
+}
+
+.Onboard-Field-Last, .Onboard-Field-User, .New-Item-Description, .Details-Item-Name, .Details-Item-Id, .Details-Owner, .Details-Username,
+.Details-User-Id, .Details-Item-Quantity, .New-Item-Quantity {
+  margin: .5vh 0vh .5vh 4.5vh;
+}
+
+.Login-Field-Pass, .Onboard-Field-Pass {
+  margin: .5vh 0vh .5vh 4.5vh;
+}
+
+.Details-Item-Description {
+  margin: .5vh 0vh 1.5vh 4.5vh;
+}
+
+.New, .Result-Table {
+  margin-top: 3vh;
+}
+
+.Visibility-Container {
+  color:#FFFFFF;
+  font-size: calc(2px + 2vmin);
+  justify-self: left;
+  background: transparent;
+  margin: .5vh 0vh 1.5vh 4.5vh;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.Field-Visibility {
+  filter: invert(100%) grayscale(1);
+  border-radius: 50%;
+}
+
+.New-Account-Link, .Password-Requirements {
+  margin: 0vh 5vh 0vh auto;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.Details-Info {
+  color: #b6b6b6;
+  text-align: center;
+  width: 100%;
+  text-decoration:underline;
+}
