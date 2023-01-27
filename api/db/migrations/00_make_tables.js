@@ -10,7 +10,6 @@ exports.up = function (knex) {
       table.increments('id');
       table.string('first_name', 50).notNullable();
       table.string('last_name', 50).notNullable();
-      table.string('email', 50).notNullable();
       table.string('username', 50).notNullable().unique();
       table.string('password_hash', 60).notNullable();
       table.boolean('admin').notNullable();
@@ -19,7 +18,7 @@ exports.up = function (knex) {
       table.increments('id');
       table.string('name', 50).notNullable();
       table.integer('quantity').notNullable();
-      table.string('description', 250).notNullable().unique();
+      table.string('description', 500).notNullable();
       table.integer('member_id').notNullable();
       table.foreign('member_id').references('member.id').onDelete('CASCADE').onUpdate('CASCADE');
     });

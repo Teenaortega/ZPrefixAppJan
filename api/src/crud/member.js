@@ -4,7 +4,9 @@ const bcrypt = require('bcryptjs');
 const { hash, compare } = bcrypt;
 const SALTS = 12;
 const knex = require('knex')(require('../../knexfile')[process.env.NODE_ENV || 'development']);
+const cors = require('cors');
 
+app.use(cors()).use(express.json());
 
 app.get('/', (req, res) => {
   knex('member')
@@ -14,7 +16,7 @@ app.get('/', (req, res) => {
       res.status(200).send(items);
     })
     .catch(e => res.status(500).end())
-  // http://localhost:8080/member
+  // http://localhost:8080/members
 });
 
 // GET All Incident Reports from incident_reports table by ID
@@ -25,8 +27,20 @@ app.get('/:id', (req, res) => {
     .then(items => {
       res.status(200).send(items);
     }).catch(e => res.status(500).end())
-  // http://localhost:8080/member/1
+  // http://localhost:8080/members/1
 });
+
+app.get('/id/:username', (req, res) => { // User ID Query
+  let { username } = req.params;
+  knex('member')
+    .select('id')
+    .where('username', username)
+    .then(user => {
+      res.set("Access-Control-Allow-Origin", "*").status(200).send(user);
+    });
+});
+  // http://localhost:8080/members/id/username
+
 
 // POST username and password for check against user table password_hash, 200 = match, 403 = wrong, 500 = server issue
 app.post('/login', async (req, res) => {
@@ -36,7 +50,7 @@ app.post('/login', async (req, res) => {
     const match = await compare(password, hashed[0].password_hash);
     match ? res.status(200).send(hashed[0]) : res.status(403).end()
   } catch (e) { res.status(500).send(e) }
-  // http://localhost:8080/member/login
+  // http://localhost:8080/members/login
 });
 
 // POST New Account >>>> TODO Validate + Connect
@@ -49,7 +63,6 @@ app.post('/new', async (req, res) => {
         id: num,
         first_name: req.body.first_name,
         last_name: req.body.last_name,
-        email: req.body.email,
         username: req.body.username,
         password_hash: hashed,
         admin: false,
@@ -57,7 +70,7 @@ app.post('/new', async (req, res) => {
     )
     .then(res.status(201).end())
     .catch((e) => res.status(500).end())
-  // http://localhost:8080/member/new
+  // http://localhost:8080/members/new
 });
 
 //PATCH update member information
@@ -71,7 +84,6 @@ app.patch('/updatemember/:id', async (req, res) => {
         {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
-            email: req.body.email,
             username: req.body.username,
             password_hash: hashed,
             admin: false,
@@ -82,7 +94,7 @@ app.patch('/updatemember/:id', async (req, res) => {
       ).catch(e => res.status(403).end());
   }
   catch (e) { res.status(500).send(e); }
-  // http://localhost:8080/member/updatemember/1
+  // http://localhost:8080/members/updatemember/1
 });
 
 app.patch('/updatecert/:id', async (req, res) => {
@@ -99,7 +111,7 @@ app.patch('/updatecert/:id', async (req, res) => {
       ).catch(e => res.status(403).end());
   }
   catch (e) { res.status(500).send(e); }
-  // http://localhost:8080/member/updatecert/1
+  // http://localhost:8080/members/updatecert/1
 });
 
 
@@ -110,7 +122,7 @@ app.patch('/admin/:id', async (req, res) => {
       res.status(200).end()
     ).catch(e => res.status(403).end());
   } catch (e) { res.status(500).end(); }
-  // http://localhost:8080/member/admin/1
+  // http://localhost:8080/members/admin/1
 })
 
 // PATCH update member to not admin
@@ -120,6 +132,9 @@ app.patch('/unadmin/:id', async (req, res) => {
       res.status(200).end()
     ).catch(e => res.status(403).end());
   } catch (e) { res.status(500).end(); }
-  // http://localhost:8080/member/unadmin/1
+  // http://localhost:8080/members/unadmin/1
 })
+
+
+
 module.exports = app;

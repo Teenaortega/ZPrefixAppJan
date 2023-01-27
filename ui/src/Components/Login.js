@@ -20,14 +20,14 @@ const Login = () => {
 
     if (user !== '' && pass !== '')
     {
-      let res = await fetch (`${API_URL}/login`, {
+      let res = await fetch (`${API_URL}/members/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({username: user, password: pass})
       }).catch(e => window.alert(e))
 
       if (res.status === 200) {
-        document.cookie = `Zinven=${user}; Path=/;`;
+        document.cookie = `InventoryTracker=${user}; Path=/;`;
         setIsLoggedIn(true);
         setCurrentFilter(1);
           navigate('/Home');

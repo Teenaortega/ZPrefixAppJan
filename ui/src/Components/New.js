@@ -10,7 +10,7 @@ const New = () => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${API_URL}/user/id/${document.cookie.split('=')[1]}`)
+    fetch(`${API_URL}/members/id/${document.cookie.split('=')[1]}`)
       .then((response) => response.json())
       .then((data) => {
         setCurrentId(data.map(item => item.id))
@@ -39,12 +39,12 @@ const New = () => {
     } else if (descriptionIn.length > 500) {
       window.alert(`The Item Description field cannot exceed 500 characters 🙁`);
     } else {
-      var res = await fetch(`${API_URL}/item`, {
+      var res = await fetch(`${API_URL}/items`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          user_id: +currentId,
-          item_name: itemName,
+          member_id: +currentId,
+          name: itemName,
           description: descriptionIn,
           quantity: quantityIn
         })

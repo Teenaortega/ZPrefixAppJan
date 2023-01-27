@@ -22,9 +22,9 @@ const Items = () => {
 
   const columns: GridColDef[] = [
     {field: 'item_id', headerName: 'Item ID', flex: 1, minWidth: 50 },
-    {field: 'item_name', headerName: 'Item Name', flex: 1, minWidth: 50 },
+    {field: 'name', headerName: 'Item Name', flex: 1, minWidth: 50 },
     {field: 'description', headerName: 'Item Description', flex: 1, minWidth: 150 },
-    {field: 'user_id', headerName: 'User ID', flex: 1, minWidth: 50 },
+    {field: 'member_id', headerName: 'User ID', flex: 1, minWidth: 50 },
     {field: 'owner', headerName: 'Owner', flex: 1, minWidth: 50 },
     {field: 'username', headerName: 'Username', flex: 1, minWidth: 50 },
     {field: 'quantity', headerName: 'Quantity', flex: 1, minWidth: 50 },
@@ -45,6 +45,7 @@ const Items = () => {
         }
         if (currentFilter === 0) {
           filter = allItems;
+
         }
         for (let i = 0; i < filter.length; i++) {
           if (filter[i].description.length > 100) {
@@ -53,10 +54,10 @@ const Items = () => {
           working.push({
             id: (i + 1),
             item_id: filter[i].id,
-            user_id: filter[i].user_id,
+            member_id: filter[i].member_id,
             owner: `${filter[i].first_name} ${filter[i].last_name}`,
             username: filter[i].username,
-            item_name: filter[i].item_name,
+            name: filter[i].name,
             quantity: filter[i].quantity,
             description: filter[i].description})
         }

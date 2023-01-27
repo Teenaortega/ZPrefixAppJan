@@ -13,7 +13,7 @@ app.get('/', (req, res) => { // List All Items All Data
   app.get('/merged', (req, res) => { // List All Items With Merged Data from member Table
     knex('item')
       .join('member', 'member.id', 'item.member_id')
-      .select('item.id', 'member_id', 'member.first_name', 'member.last_name', 'item.name','item.description', 'item.quantity')
+      .select('item.id', 'member_id', 'member.first_name', 'member.last_name', 'member.username', 'item.name','item.description', 'item.quantity')
       .then(items => {
         res.set("Access-Control-Allow-Origin", "*").status(200).send(items);
       });
@@ -29,7 +29,7 @@ app.get('/', (req, res) => { // List All Items All Data
       });
   });
   
-  app.post('/item/:id', async (req, res) => { // Add an Item
+  app.post('/', async (req, res) => { // Add an Item
     let num = (await knex('item').max('id as max').first()).max + 1;
     knex('item')
       .insert(
@@ -53,6 +53,7 @@ app.get('/', (req, res) => { // List All Items All Data
       });
   });
   
+
   app.patch('/:id', (req, res) => { // Update Item
     let { id } = req.params;
     knex('item')

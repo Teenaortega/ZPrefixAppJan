@@ -12,7 +12,7 @@ const Onboard = () => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${API_URL}/usernames`)
+    fetch(`${API_URL}/members`)
       .then((response) => response.json())
       .then((data) =>
         setUsernameList(data.map(item => item.username))
@@ -46,11 +46,8 @@ const createSubmit = async (e) => {
   } else {
     if (usernameList.indexOf(user) !== -1) {
       window.alert(`Your username has already been taken 🙁`);
-      console.log(usernameList.indexOf(user));
-      console.log(user);
-      console.log(usernameList)
     } else {
-      var res = await fetch (`${API_URL}/user`, {
+      var res = await fetch (`${API_URL}/members/new`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -62,7 +59,7 @@ const createSubmit = async (e) => {
       }).catch(e => window.alert(e))
 
       if (res.status === 201) {
-        document.cookie = `Zinven=${user}; Path=/;`;
+        document.cookie = `InventoryTracker=${user}; Path=/;`;
         setIsLoggedIn(true);
         setCurrentFilter(1);
         navigate('/Home');
