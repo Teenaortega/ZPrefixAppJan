@@ -90,14 +90,14 @@ const Details = () => {
         <div className="Details-Container">
           <div className="Details-Entry">
             <div className="Details-Info">
-              CANNOT EDIT
+              Owner Details
             </div>
             <input id="itemId" className="Details-Item-Id" type="text" placeholder="Item ID" onBlur={(e) => trim(e)} disabled defaultValue={itemIdText}/>
             <input id="owner" className="Details-Owner" type="text" placeholder="Owner" onBlur={(e) => trim(e)} disabled defaultValue={ownerText}/>
             <input id="username" className="Details-Username" type="text" placeholder="Username" onBlur={(e) => trim(e)} disabled defaultValue={usernameText}/>
             <input id="UserId" className="Details-User-Id" type="text" placeholder="User ID" onBlur={(e) => trim(e)} disabled defaultValue={userIdText}/>
             <div className="Details-Info">
-              CAN EDIT IF THE ITEM IS YOURS
+              Item details
             </div>
             <input id="itemName" className="Details-Item-Name" type="text" placeholder="Item Name" onBlur={(e) => trim(e)}
               disabled={!editing} defaultValue={itemNameText}/>
@@ -124,7 +124,7 @@ const Details = () => {
             </>)
             :
             (<>
-              <button className="Cant-Edit-Button">This item isn't yours 🙁</button></>
+              <button className="Cant-Edit-Button">This item can only be editted by it's owner.</button></>
             )}
         </div>
       </div>

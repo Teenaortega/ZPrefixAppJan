@@ -30,7 +30,7 @@ const Header = () => {
   return (
       <div className="Header">
         <Link to={'/Home'} className="Header-Title" >Inventory Tracker</Link>
-        {currentUser && (<div className="Header-Greeting">Hello {currentUser} 🙂</div>)}
+        {currentUser && (<div className="Header-Greeting">Hello {currentUser} </div>)}
         {isLoggedIn ?
           (<Link to={'/'} className="Header-Logout" onClick={() => logout()}>Logout</Link>)
         :

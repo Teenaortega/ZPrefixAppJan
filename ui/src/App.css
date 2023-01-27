@@ -1,5 +1,5 @@
 body {
-  background-color: #666666;
+  background-image: linear-gradient(to bottom right, rgb(195, 144, 176), rgb(105, 76, 116));
 }
 
 textarea {
@@ -13,7 +13,7 @@ textarea {
 }
 
 .Result-Table {
-  background-color: #222222;
+  background-color: #6aa0d0;
   font-size: calc(8px + 2vmin);
   color: #FFFFFF;
   width: 90vw;

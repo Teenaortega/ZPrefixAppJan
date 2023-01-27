@@ -10,7 +10,7 @@ exports.up = function (knex) {
       table.increments('id');
       table.string('first_name', 50).notNullable();
       table.string('last_name', 50).notNullable();
-      table.string('username', 50).notNullable().unique();
+      table.string('username', 50).notNullable();
       table.string('password_hash', 60).notNullable();
       table.boolean('admin').notNullable();
     })

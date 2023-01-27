@@ -49,6 +49,7 @@ const Login = () => {
               <div className="Visibility-Container"><input id="visible" className="Field-Visibility" type="checkbox" onClick={() => document.getElementById('visible').checked ? document.getElementById('pass').type = 'text' : document.getElementById('pass').type = 'password'}/>Show Password<Link to={'/Onboard'} className="New-Account-Link">New Account</Link></div>
             </div>
             <button className="Login-Submit-Button">Sign In</button>
+          <button className="Login-Submit-Button" onClick={() => navigate('/Home')}> Continue As Visitor</button>
           </form>
         </div>
     )
